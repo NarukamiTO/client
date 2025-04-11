@@ -1,0 +1,157 @@
+package projects.tanks.client.chat.osgi {
+  import _codec.projects.tanks.client.chat.models.chat.chat.CodecChatAddressMode;
+  import _codec.projects.tanks.client.chat.models.chat.chat.CodecChatCC;
+  import _codec.projects.tanks.client.chat.models.chat.chat.VectorCodecChatAddressModeLevel1;
+  import _codec.projects.tanks.client.chat.models.chat.chat.VectorCodecChatCCLevel1;
+  import _codec.projects.tanks.client.chat.models.chat.users.personalmessagereceiver.CodecPersonalMessageReceiveMode;
+  import _codec.projects.tanks.client.chat.models.chat.users.personalmessagereceiver.VectorCodecPersonalMessageReceiveModeLevel1;
+  import _codec.projects.tanks.client.chat.models.clanchat.clanchat.CodecClanChatCC;
+  import _codec.projects.tanks.client.chat.models.clanchat.clanchat.VectorCodecClanChatCCLevel1;
+  import _codec.projects.tanks.client.chat.models.news.showing.CodecNewsItemData;
+  import _codec.projects.tanks.client.chat.models.news.showing.CodecNewsShowingCC;
+  import _codec.projects.tanks.client.chat.models.news.showing.VectorCodecNewsItemDataLevel1;
+  import _codec.projects.tanks.client.chat.models.news.showing.VectorCodecNewsShowingCCLevel1;
+  import _codec.projects.tanks.client.chat.types.CodecBattleChatLink;
+  import _codec.projects.tanks.client.chat.types.CodecChatMessage;
+  import _codec.projects.tanks.client.chat.types.CodecMessageType;
+  import _codec.projects.tanks.client.chat.types.CodecUserStatus;
+  import _codec.projects.tanks.client.chat.types.VectorCodecBattleChatLinkLevel1;
+  import _codec.projects.tanks.client.chat.types.VectorCodecChatMessageLevel1;
+  import _codec.projects.tanks.client.chat.types.VectorCodecMessageTypeLevel1;
+  import _codec.projects.tanks.client.chat.types.VectorCodecUserStatusLevel1;
+  import alternativa.osgi.OSGi;
+  import alternativa.osgi.bundle.IBundleActivator;
+  import alternativa.protocol.ICodec;
+  import alternativa.protocol.IProtocol;
+  import alternativa.protocol.codec.OptionalCodecDecorator;
+  import alternativa.protocol.info.CollectionCodecInfo;
+  import alternativa.protocol.info.EnumCodecInfo;
+  import alternativa.protocol.info.TypeCodecInfo;
+  import alternativa.types.Long;
+  import platform.client.fp10.core.registry.ModelRegistry;
+  import projects.tanks.client.chat.models.chat.chat.ChatAddressMode;
+  import projects.tanks.client.chat.models.chat.chat.ChatCC;
+  import projects.tanks.client.chat.models.chat.users.personalmessagereceiver.PersonalMessageReceiveMode;
+  import projects.tanks.client.chat.models.clanchat.clanchat.ClanChatCC;
+  import projects.tanks.client.chat.models.news.showing.NewsItemData;
+  import projects.tanks.client.chat.models.news.showing.NewsShowingCC;
+  import projects.tanks.client.chat.types.BattleChatLink;
+  import projects.tanks.client.chat.types.ChatMessage;
+  import projects.tanks.client.chat.types.MessageType;
+  import projects.tanks.client.chat.types.UserStatus;
+
+  public class Activator implements IBundleActivator {
+    public static var osgi:OSGi;
+
+    public function Activator() {
+      super();
+    }
+
+    public function start(param1:OSGi) : void {
+      var local4:ICodec = null;
+      osgi = param1;
+      var local2:ModelRegistry = ModelRegistry(OSGi.getInstance().getService(ModelRegistry));
+      local2.register(Long.getLong(1413646454,-1397687631),Long.getLong(798714808,-1771953585));
+      local2.register(Long.getLong(1413646454,-1397687631),Long.getLong(978360780,-904735215));
+      local2.register(Long.getLong(1413646454,-1397687631),Long.getLong(613975441,130861697));
+      local2.register(Long.getLong(207484105,-2003218757),Long.getLong(1427006127,1489654476));
+      local2.register(Long.getLong(207484105,-2003218757),Long.getLong(485375957,-1291947355));
+      local2.register(Long.getLong(202181824,-248161435),Long.getLong(364381846,-771941222));
+      local2.register(Long.getLong(202181824,-248161435),Long.getLong(73337788,-905524322));
+      var local3:IProtocol = IProtocol(osgi.getService(IProtocol));
+      local4 = new CodecChatAddressMode();
+      local3.registerCodec(new EnumCodecInfo(ChatAddressMode,false),local4);
+      local3.registerCodec(new EnumCodecInfo(ChatAddressMode,true),new OptionalCodecDecorator(local4));
+      local4 = new CodecChatCC();
+      local3.registerCodec(new TypeCodecInfo(ChatCC,false),local4);
+      local3.registerCodec(new TypeCodecInfo(ChatCC,true),new OptionalCodecDecorator(local4));
+      local4 = new CodecPersonalMessageReceiveMode();
+      local3.registerCodec(new EnumCodecInfo(PersonalMessageReceiveMode,false),local4);
+      local3.registerCodec(new EnumCodecInfo(PersonalMessageReceiveMode,true),new OptionalCodecDecorator(local4));
+      local4 = new CodecClanChatCC();
+      local3.registerCodec(new TypeCodecInfo(ClanChatCC,false),local4);
+      local3.registerCodec(new TypeCodecInfo(ClanChatCC,true),new OptionalCodecDecorator(local4));
+      local4 = new CodecNewsItemData();
+      local3.registerCodec(new TypeCodecInfo(NewsItemData,false),local4);
+      local3.registerCodec(new TypeCodecInfo(NewsItemData,true),new OptionalCodecDecorator(local4));
+      local4 = new CodecNewsShowingCC();
+      local3.registerCodec(new TypeCodecInfo(NewsShowingCC,false),local4);
+      local3.registerCodec(new TypeCodecInfo(NewsShowingCC,true),new OptionalCodecDecorator(local4));
+      local4 = new CodecBattleChatLink();
+      local3.registerCodec(new TypeCodecInfo(BattleChatLink,false),local4);
+      local3.registerCodec(new TypeCodecInfo(BattleChatLink,true),new OptionalCodecDecorator(local4));
+      local4 = new CodecChatMessage();
+      local3.registerCodec(new TypeCodecInfo(ChatMessage,false),local4);
+      local3.registerCodec(new TypeCodecInfo(ChatMessage,true),new OptionalCodecDecorator(local4));
+      local4 = new CodecMessageType();
+      local3.registerCodec(new EnumCodecInfo(MessageType,false),local4);
+      local3.registerCodec(new EnumCodecInfo(MessageType,true),new OptionalCodecDecorator(local4));
+      local4 = new CodecUserStatus();
+      local3.registerCodec(new TypeCodecInfo(UserStatus,false),local4);
+      local3.registerCodec(new TypeCodecInfo(UserStatus,true),new OptionalCodecDecorator(local4));
+      local4 = new VectorCodecChatAddressModeLevel1(false);
+      local3.registerCodec(new CollectionCodecInfo(new EnumCodecInfo(ChatAddressMode,false),false,1),local4);
+      local3.registerCodec(new CollectionCodecInfo(new EnumCodecInfo(ChatAddressMode,false),true,1),new OptionalCodecDecorator(local4));
+      local4 = new VectorCodecChatAddressModeLevel1(true);
+      local3.registerCodec(new CollectionCodecInfo(new EnumCodecInfo(ChatAddressMode,true),false,1),local4);
+      local3.registerCodec(new CollectionCodecInfo(new EnumCodecInfo(ChatAddressMode,true),true,1),new OptionalCodecDecorator(local4));
+      local4 = new VectorCodecChatCCLevel1(false);
+      local3.registerCodec(new CollectionCodecInfo(new TypeCodecInfo(ChatCC,false),false,1),local4);
+      local3.registerCodec(new CollectionCodecInfo(new TypeCodecInfo(ChatCC,false),true,1),new OptionalCodecDecorator(local4));
+      local4 = new VectorCodecChatCCLevel1(true);
+      local3.registerCodec(new CollectionCodecInfo(new TypeCodecInfo(ChatCC,true),false,1),local4);
+      local3.registerCodec(new CollectionCodecInfo(new TypeCodecInfo(ChatCC,true),true,1),new OptionalCodecDecorator(local4));
+      local4 = new VectorCodecPersonalMessageReceiveModeLevel1(false);
+      local3.registerCodec(new CollectionCodecInfo(new EnumCodecInfo(PersonalMessageReceiveMode,false),false,1),local4);
+      local3.registerCodec(new CollectionCodecInfo(new EnumCodecInfo(PersonalMessageReceiveMode,false),true,1),new OptionalCodecDecorator(local4));
+      local4 = new VectorCodecPersonalMessageReceiveModeLevel1(true);
+      local3.registerCodec(new CollectionCodecInfo(new EnumCodecInfo(PersonalMessageReceiveMode,true),false,1),local4);
+      local3.registerCodec(new CollectionCodecInfo(new EnumCodecInfo(PersonalMessageReceiveMode,true),true,1),new OptionalCodecDecorator(local4));
+      local4 = new VectorCodecClanChatCCLevel1(false);
+      local3.registerCodec(new CollectionCodecInfo(new TypeCodecInfo(ClanChatCC,false),false,1),local4);
+      local3.registerCodec(new CollectionCodecInfo(new TypeCodecInfo(ClanChatCC,false),true,1),new OptionalCodecDecorator(local4));
+      local4 = new VectorCodecClanChatCCLevel1(true);
+      local3.registerCodec(new CollectionCodecInfo(new TypeCodecInfo(ClanChatCC,true),false,1),local4);
+      local3.registerCodec(new CollectionCodecInfo(new TypeCodecInfo(ClanChatCC,true),true,1),new OptionalCodecDecorator(local4));
+      local4 = new VectorCodecNewsItemDataLevel1(false);
+      local3.registerCodec(new CollectionCodecInfo(new TypeCodecInfo(NewsItemData,false),false,1),local4);
+      local3.registerCodec(new CollectionCodecInfo(new TypeCodecInfo(NewsItemData,false),true,1),new OptionalCodecDecorator(local4));
+      local4 = new VectorCodecNewsItemDataLevel1(true);
+      local3.registerCodec(new CollectionCodecInfo(new TypeCodecInfo(NewsItemData,true),false,1),local4);
+      local3.registerCodec(new CollectionCodecInfo(new TypeCodecInfo(NewsItemData,true),true,1),new OptionalCodecDecorator(local4));
+      local4 = new VectorCodecNewsShowingCCLevel1(false);
+      local3.registerCodec(new CollectionCodecInfo(new TypeCodecInfo(NewsShowingCC,false),false,1),local4);
+      local3.registerCodec(new CollectionCodecInfo(new TypeCodecInfo(NewsShowingCC,false),true,1),new OptionalCodecDecorator(local4));
+      local4 = new VectorCodecNewsShowingCCLevel1(true);
+      local3.registerCodec(new CollectionCodecInfo(new TypeCodecInfo(NewsShowingCC,true),false,1),local4);
+      local3.registerCodec(new CollectionCodecInfo(new TypeCodecInfo(NewsShowingCC,true),true,1),new OptionalCodecDecorator(local4));
+      local4 = new VectorCodecBattleChatLinkLevel1(false);
+      local3.registerCodec(new CollectionCodecInfo(new TypeCodecInfo(BattleChatLink,false),false,1),local4);
+      local3.registerCodec(new CollectionCodecInfo(new TypeCodecInfo(BattleChatLink,false),true,1),new OptionalCodecDecorator(local4));
+      local4 = new VectorCodecBattleChatLinkLevel1(true);
+      local3.registerCodec(new CollectionCodecInfo(new TypeCodecInfo(BattleChatLink,true),false,1),local4);
+      local3.registerCodec(new CollectionCodecInfo(new TypeCodecInfo(BattleChatLink,true),true,1),new OptionalCodecDecorator(local4));
+      local4 = new VectorCodecChatMessageLevel1(false);
+      local3.registerCodec(new CollectionCodecInfo(new TypeCodecInfo(ChatMessage,false),false,1),local4);
+      local3.registerCodec(new CollectionCodecInfo(new TypeCodecInfo(ChatMessage,false),true,1),new OptionalCodecDecorator(local4));
+      local4 = new VectorCodecChatMessageLevel1(true);
+      local3.registerCodec(new CollectionCodecInfo(new TypeCodecInfo(ChatMessage,true),false,1),local4);
+      local3.registerCodec(new CollectionCodecInfo(new TypeCodecInfo(ChatMessage,true),true,1),new OptionalCodecDecorator(local4));
+      local4 = new VectorCodecMessageTypeLevel1(false);
+      local3.registerCodec(new CollectionCodecInfo(new EnumCodecInfo(MessageType,false),false,1),local4);
+      local3.registerCodec(new CollectionCodecInfo(new EnumCodecInfo(MessageType,false),true,1),new OptionalCodecDecorator(local4));
+      local4 = new VectorCodecMessageTypeLevel1(true);
+      local3.registerCodec(new CollectionCodecInfo(new EnumCodecInfo(MessageType,true),false,1),local4);
+      local3.registerCodec(new CollectionCodecInfo(new EnumCodecInfo(MessageType,true),true,1),new OptionalCodecDecorator(local4));
+      local4 = new VectorCodecUserStatusLevel1(false);
+      local3.registerCodec(new CollectionCodecInfo(new TypeCodecInfo(UserStatus,false),false,1),local4);
+      local3.registerCodec(new CollectionCodecInfo(new TypeCodecInfo(UserStatus,false),true,1),new OptionalCodecDecorator(local4));
+      local4 = new VectorCodecUserStatusLevel1(true);
+      local3.registerCodec(new CollectionCodecInfo(new TypeCodecInfo(UserStatus,true),false,1),local4);
+      local3.registerCodec(new CollectionCodecInfo(new TypeCodecInfo(UserStatus,true),true,1),new OptionalCodecDecorator(local4));
+    }
+
+    public function stop(param1:OSGi) : void {
+    }
+  }
+}
