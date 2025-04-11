@@ -1,0 +1,9 @@
+# IDEs
+.idea/
+.vscode/
+
+# Gradle
+.gradle/
+
+# Artifacts
+build/
