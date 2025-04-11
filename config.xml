@@ -1,0 +1,42 @@
+<flex-config>
+  <compiler>
+    <!-- compiler.as3: use the ActionScript 3 class based object model for greater performance and better error reporting. In the class based object model most built-in functions are implemented as fixed methods of classes.-->
+    <as3>true</as3>
+
+    <!-- compiler.compress: enables or disables SWF file compression-->
+    <compress>true</compress>
+
+    <!-- compiler.debug: generates a movie that is suitable for debugging-->
+    <debug>true</debug>
+
+    <!-- compiler.es: use the ECMAScript edition 3 prototype based object model to allow dynamic overriding of prototype properties. In the prototype based object model built-in functions are implemented as dynamic properties of prototype objects.-->
+    <es>false</es>
+
+    <!-- compiler.omit-trace-statements: toggle whether trace statements are omitted-->
+    <omit-trace-statements>false</omit-trace-statements>
+
+    <!-- compiler.optimize: Enable post-link SWF optimization-->
+    <optimize>true</optimize>
+
+    <!-- compiler.show-actionscript-warnings: runs the AS3 compiler in a mode that detects legal but potentially incorrect code-->
+    <show-actionscript-warnings>false</show-actionscript-warnings>
+
+    <!-- compiler.strict: runs the AS3 compiler in strict error checking mode.-->
+    <strict>false</strict>
+
+    <!-- compiler.verbose-stacktraces: save callstack information to the SWF for debugging-->
+    <verbose-stacktraces>true</verbose-stacktraces>
+  </compiler>
+
+  <!-- Enables SWFs to access the network. -->
+  <use-network>true</use-network>
+
+  <!-- default-background-color: default background color (may be overridden by the application code)-->
+  <default-background-color>0xFFFFFF</default-background-color>
+
+  <!-- default-frame-rate: default frame rate to be used in the SWF.-->
+  <default-frame-rate>24</default-frame-rate>
+
+  <!-- target-player: specifies the version of the player the application is targeting. Features requiring a later version will not be compiled into the application. The minimum value supported is "9.0.0".-->
+  <target-player>32.0</target-player>
+</flex-config>

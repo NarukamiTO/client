@@ -13,3 +13,5 @@ pluginManagement {
     }
   }
 }
+
+include(":AlternativaLoader")
