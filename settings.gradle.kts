@@ -17,3 +17,4 @@ pluginManagement {
 include(":AlternativaLoader")
 include(":entrance")
 include(":a3d.software")
+include(":game")
