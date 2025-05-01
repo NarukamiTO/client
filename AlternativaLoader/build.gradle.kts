@@ -1,8 +1,7 @@
 import dev.assasans.actionscript.SwfType
 
 plugins {
-  id("dev.assasans.actionscript") version "1.0.3-SNAPSHOT"
-  idea
+  id("dev.assasans.actionscript")
 }
 
 actionscript {
@@ -63,11 +62,4 @@ tasks.register<Exec>("run") {
 
   val query = params.map { (key, value) -> "$key=$value" }.joinToString("&")
   commandLine(runner, "file://$entry?$query")
-}
-
-idea {
-  module {
-    isDownloadJavadoc = true
-    isDownloadSources = true
-  }
 }
