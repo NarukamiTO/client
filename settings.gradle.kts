@@ -15,6 +15,7 @@ pluginManagement {
 }
 
 include(":AlternativaLoader")
+include(":TanksErrorScreen")
 include(":entrance")
 include(":a3d.software")
 include(":game")
