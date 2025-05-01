@@ -16,6 +16,7 @@ pluginManagement {
 
 include(":AlternativaLoader")
 include(":StandaloneLoader")
+include(":Prelauncher")
 include(":TanksErrorScreen")
 include(":entrance")
 include(":a3d.software")
