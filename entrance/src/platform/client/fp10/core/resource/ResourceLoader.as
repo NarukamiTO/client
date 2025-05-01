@@ -173,6 +173,8 @@ package platform.client.fp10.core.resource {
   }
 }
 
+import platform.client.fp10.core.resource.IResourceLoadingListener;
+import platform.client.fp10.core.resource.Resource;
 class ResourceEntry {
   public var resource:Resource;
   public var listeners:Vector.<IResourceLoadingListener>;

@@ -67,6 +67,8 @@ package alternativa.utils {
   }
 }
 
+import alternativa.utils.CircularStringBuffer;
+import alternativa.utils.IStringBufferIterator;
 class Iterator implements IStringBufferIterator {
   private var buffer:CircularStringBuffer;
   private var index:int;

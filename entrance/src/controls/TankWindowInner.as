@@ -8,28 +8,13 @@ package controls {
   import flash.geom.Rectangle;
 
   public class TankWindowInner extends DiscreteSprite {
-    [Embed(source="/resources/inner_L.png")]
     private static const leftClass:Class = TankWindowInner_leftClass;
-
-    [Embed(source="/resources/inner_R.png")]
     private static const rightClass:Class = TankWindowInner_rightClass;
-
-    [Embed(source="/resources/inner_B.png")]
     private static const bottomClass:Class = TankWindowInner_bottomClass;
-
-    [Embed(source="/resources/inner_T.png")]
     private static const topClass:Class = TankWindowInner_topClass;
-
-    [Embed(source="/resources/inner_TL.png")]
     private static const topLeftClass:Class = TankWindowInner_topLeftClass;
-
-    [Embed(source="/resources/inner_TR.png")]
     private static const topRightClass:Class = TankWindowInner_topRightClass;
-
-    [Embed(source="/resources/inner_BL.png")]
     private static const bottomLeftClass:Class = TankWindowInner_bottomLeftClass;
-
-    [Embed(source="/resources/inner_BR.png")]
     private static const bottomRightClass:Class = TankWindowInner_bottomRightClass;
 
     public static const RED:uint = 4284618496;

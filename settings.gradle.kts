@@ -15,3 +15,4 @@ pluginManagement {
 }
 
 include(":AlternativaLoader")
+include(":entrance")

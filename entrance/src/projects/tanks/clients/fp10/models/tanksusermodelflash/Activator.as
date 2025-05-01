@@ -6,7 +6,7 @@ package projects.tanks.clients.fp10.models.tanksusermodelflash {
   import alternativa.osgi.service.launcherparams.ILauncherParams;
   import alternativa.osgi.service.locale.ILocaleService;
   import alternativa.osgi.service.logging.LogService;
-  import alternativa.tanks.controller.commands.goto.GoToPartnerRegistrationCommand;
+  import alternativa.tanks.controller.commands.goto_.GoToPartnerRegistrationCommand;
   import alternativa.tanks.loader.ILoaderWindowService;
   import alternativa.tanks.loader.IModalLoaderService;
   import alternativa.tanks.newbieservice.NewbieUserService;

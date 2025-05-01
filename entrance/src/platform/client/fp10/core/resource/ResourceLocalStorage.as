@@ -198,6 +198,7 @@ package platform.client.fp10.core.resource {
 import alternativa.osgi.service.console.IConsole;
 import flash.net.SharedObject;
 import flash.utils.ByteArray;
+import platform.client.fp10.core.resource.ResourceLocalStorage;
 class ResourceObject {
   private var sharedObject:SharedObject;
   private var _resourceId:String;
@@ -252,11 +253,11 @@ class ResourceIndex {
     }
   }
 
-  public function getResourceInfo(param1:String) : ResourceInfo {
-    return new ResourceInfo(this.index[param1]);
+  public function getResourceInfo(param1:String) : LocalResourceInfo {
+    return new LocalResourceInfo(this.index[param1]);
   }
 
-  public function setResourceInfo(param1:String, param2:ResourceInfo) : void {
+  public function setResourceInfo(param1:String, param2:LocalResourceInfo) : void {
     if(param2 == null) {
       this.removeResourceInfo(param1);
     } else {
@@ -269,7 +270,7 @@ class ResourceIndex {
   }
 
   public function addResourceData(param1:String, param2:String, param3:String) : void {
-    var local4:ResourceInfo = this.getResourceInfo(param1);
+    var local4:LocalResourceInfo = this.getResourceInfo(param1);
     local4.description = param3;
     var local5:Array = local4.classifiers;
     if(local5.indexOf(param2) < 0) {
@@ -279,7 +280,7 @@ class ResourceIndex {
   }
 
   public function removeResourceData(param1:String, param2:String) : void {
-    var local3:ResourceInfo = this.getResourceInfo(param1);
+    var local3:LocalResourceInfo = this.getResourceInfo(param1);
     if(local3.empty) {
       return;
     }
@@ -330,7 +331,7 @@ class PrintIndexCommand extends ConsoleCommand {
   override public function execute(param1:IConsole, param2:Array) : void {
     var counter:int = 0;
     var sid:String = null;
-    var resourceInfo:ResourceInfo = null;
+    var resourceInfo:LocalResourceInfo = null;
     var console:IConsole = param1;
     var params:Array = param2;
     var resourceIndex:ResourceIndex = storage.getResourceIndex();
@@ -426,11 +427,13 @@ class FlushStorageIndexCommand extends ConsoleCommand {
   }
 }
 
-class ResourceInfo {
+// Narukami rename (class ResourceInfo) - SDK bug:
+// This [ResourceInfo] conflicts with [platform.client.fp10.core.resource.ResourceInfo].
+class LocalResourceInfo {
   public var empty:Boolean;
   public var rawData:Object;
 
-  public function ResourceInfo(param1:Object) {
+  public function LocalResourceInfo(param1:Object) {
     super();
     if(param1 == null) {
       this.empty = true;
