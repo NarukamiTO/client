@@ -1,5 +1,5 @@
 plugins {
-  id("dev.assasans.actionscript") version "1.0.3-SNAPSHOT" apply false
+  id("dev.assasans.actionscript") version "1.0.6-SNAPSHOT" apply false
   idea
 }
 
