@@ -22,8 +22,31 @@ dependencies {
   implementation(rootProject.files("libs/textLayout.swc"))
 }
 
+val configureWhitelist = tasks.register("configureFlashPlayerWhitelist") {
+  val os = System.getProperty("os.name").lowercase()
+  val path = when {
+    os.startsWith("linux") -> System.getProperty("user.home") + "/.macromedia/Flash_Player/#Security/FlashPlayerTrust/"
+    os.startsWith("win")   -> System.getProperty("user.home") + "\\AppData\\Roaming\\Macromedia\\Flash Player\\#Security\\FlashPlayerTrust\\"
+    os.startsWith("mac")   -> System.getProperty("user.home") + "/Library/Preferences/Macromedia/Flash Player/#Security/FlashPlayerTrust/"
+    else                   -> {
+      logger.warn("Unknown OS: ${System.getProperty("os.name")}. Flash Player whitelist may not be configured correctly.")
+      return@register
+    }
+  }
+
+  val entry = project.layout.buildDirectory.file("libs/executable.swf").get()
+  val file = file("$path/narukami.cfg")
+  file.parentFile.mkdirs()
+  file.writeText("file://${entry.asFile.parentFile.absolutePath}\n")
+  logger.info("Flash Player whitelist configured: $file")
+}
+
 tasks.register<Exec>("run") {
-  val runner = project.property("run.binary")
+  dependsOn(configureWhitelist)
+
+  val runner = rootProject.file(requireNotNull(rootProject.property("run.binary")) {
+    "Runner binary not specified. Please set the 'run.binary' property."
+  })
   val entry = project.layout.buildDirectory.file("libs/executable.swf").get().asFile.absolutePath
   val params = mapOf(
     "config" to "127.0.0.1:8081/config.xml",
