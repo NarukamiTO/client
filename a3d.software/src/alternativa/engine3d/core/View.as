@@ -613,11 +613,10 @@ package alternativa.engine3d.core {
     override alternativa3d function getChildCanvas(param1:Boolean, param2:Boolean, param3:Object3D = null, param4:Number = 1, param5:String = "normal", param6:ColorTransform = null, param7:Array = null) : Canvas {
       var local8:Canvas = null;
       var local9:DisplayObject = null;
-      while(true) {
+      // FFDec bug - original code checks [_numChildren > _numDraws] before calling [getChildAt]
+      while(alternativa3d::_numChildren > alternativa3d::numDraws) {
         local9 = super.getChildAt(alternativa3d::_numChildren - 1 - alternativa3d::numDraws);
-        if(!(alternativa3d::_numChildren > alternativa3d::numDraws && !(local9 is Canvas))) {
-          break;
-        }
+        if(local9 is Canvas) break;
         super.removeChild(local9);
         --alternativa3d::_numChildren;
       }

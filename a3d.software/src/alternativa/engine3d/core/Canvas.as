@@ -32,11 +32,10 @@ package alternativa.engine3d.core {
     alternativa3d function getChildCanvas(param1:Boolean, param2:Boolean, param3:Object3D = null, param4:Number = 1, param5:String = "normal", param6:ColorTransform = null, param7:Array = null) : Canvas {
       var local8:Canvas = null;
       var local9:DisplayObject = null;
-      while(true) {
+      // FFDec bug - original code checks [_numChildren > _numDraws] before calling [getChildAt]
+      while(this.alternativa3d::_numChildren > this.alternativa3d::numDraws) {
         local9 = getChildAt(this.alternativa3d::_numChildren - 1 - this.alternativa3d::numDraws);
-        if(!(this.alternativa3d::_numChildren > this.alternativa3d::numDraws && !(local9 is Canvas))) {
-          break;
-        }
+        if(local9 is Canvas) break;
         removeChild(local9);
         --this.alternativa3d::_numChildren;
       }

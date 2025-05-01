@@ -96,7 +96,8 @@ package alternativa.engine3d.core {
 
     public function get matrix() : Matrix3D {
       alternativa3d::tA.alternativa3d::composeMatrixFromSource(this);
-      return new Matrix3D(Vector.<Number>([alternativa3d::tA.alternativa3d::ma,alternativa3d::tA.alternativa3d::me,alternativa3d::tA.alternativa3d::mi,0,alternativa3d::tA.alternativa3d::mb,alternativa3d::tA.alternativa3d::mf,alternativa3d::tA.alternativa3d::mj,0,alternativa3d::tA.alternativa3d::mc,alternativa3d::tA.alternativa3d::mg,alternativa3d::tA.alternativa3d::mk,0,alternativa3d::tA.alternativa3d::md,alternativa3d::tA.alternativa3d::mh,alternativa3d::tA.alternativa3d::ml,1]));
+      // SDK bug - namespaces in array literals cause internal compiler error
+      return new Matrix3D(Vector.<Number>([tA.ma, tA.me, tA.mi, 0, tA.mb, tA.mf, tA.mj, 0, tA.mc, tA.mg, tA.mk, 0, tA.md, tA.mh, tA.ml, 1]));
     }
 
     public function set matrix(param1:Matrix3D) : void {
@@ -123,7 +124,8 @@ package alternativa.engine3d.core {
         alternativa3d::tB.alternativa3d::composeMatrixFromSource(local1);
         alternativa3d::tA.alternativa3d::appendMatrix(alternativa3d::tB);
       }
-      return new Matrix3D(Vector.<Number>([alternativa3d::tA.alternativa3d::ma,alternativa3d::tA.alternativa3d::me,alternativa3d::tA.alternativa3d::mi,0,alternativa3d::tA.alternativa3d::mb,alternativa3d::tA.alternativa3d::mf,alternativa3d::tA.alternativa3d::mj,0,alternativa3d::tA.alternativa3d::mc,alternativa3d::tA.alternativa3d::mg,alternativa3d::tA.alternativa3d::mk,0,alternativa3d::tA.alternativa3d::md,alternativa3d::tA.alternativa3d::mh,alternativa3d::tA.alternativa3d::ml,1]));
+      // SDK bug - namespaces in array literals cause internal compiler error
+      return new Matrix3D(Vector.<Number>([tA.ma, tA.me, tA.mi, 0, tA.mb, tA.mf, tA.mj, 0, tA.mc, tA.mg, tA.mk, 0, tA.md, tA.mh, tA.ml, 1]));
     }
 
     public function localToGlobal(param1:Vector3D) : Vector3D {
