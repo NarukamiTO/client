@@ -1,0 +1,78 @@
+= Narukami Client
+
+== Requirements
+
+* Java 8 or later, link:https://adoptium.net/temurin/releases/[Eclipse Temurin] is recommended.
+
+* Adobe AIR SDK:
+** link:https://smb.assasans.dev/adobe-air/AIR_SDK32_Flex4.zip[],
+** or link:https://archive.org/details/airsdk-32[],
+** or link:https://airsdk.harman.com/download[Harman AIR SDK] (not recommended as a build target, use as runtime only).
+
+* Adobe Standalone Flash Player for `run` task:
+** link:https://archive.org/download/standaloneflashplayers/fp/fp_32/32.0.0.465/[],
+** or link:https://archive.org/details/flashplayerarchive[] (use executable with `_sa.exe` or `_sa_debug` suffix).
+
+== Building
+
+Change `dev.assasans.actionscript.sdk` and `run.binary` properties in `gradle.properties` to your
+AIR SDK root path and Standalone Flash Player binary path, respectively.
+
+To build a module, run the `build` task.
+Build artifacts will be placed in `<module>/build/libs/` directory.
+
+To build all modules, run the `dist` task.
+Build artifacts, correctly named for the resource generator, will be placed in the `build/libs/` directory.
+You can then copy them to the resource generator's `resources/library/` directory.
+
+To run the game using Standalone Flash Player, run the `run` task. Remember to build it first.
+
+== Branches
+
+`main`: Alternativa's original code, without mods or bugfixes.
+The only changes allowed are renaming of public identifiers due to compiler differences
+(`goto` is not a valid identifier).
+
+== License
+
+Patches are licensed under GNU Affero General Public License, version 3.0 or later
+(link:LICENSE[] or link:https://www.gnu.org/licenses/agpl-3.0.html[]).
+
+**In short, you must make the source code available to your users if you host this client for anybody.**
+
+== Original files
+
+[cols="1a,3a,1a",options="header"]
+|===
+| Module
+| File name (SHA-1 hash)
+| Compile date
+
+| AlternativaLoader
+| `AlternativaLoader.swf` (`2335e89d175042ec8053f75a681da768fc5af2b6`)
+| 2019-05-08
+
+| Prelauncher
+| `Prelauncher.swf` (`c06169991905f011ed8e1e27cf16a4f0d39c0a9d`)
+| 2018-03-28
+
+| TanksErrorScreen
+| `TanksErrorScreen.swf` (`62a648780b0c6bded10d6938bd7cfa3db4bbe8ea`)
+| 2015-11-03
+
+| entrance
+| `entrance-512f829fd60cc3054c7c47cadd5cf165.swf`
+| 2019-07-19
+
+| game
+| `game-a2b27de46b6ba0ef8811a554150829b5`
+| 2019-07-19
+
+| a3d.hardware
+| `hardware-5fdbd339811acf3acb445d327f6509fd.swf`
+| 2019-07-19
+
+| a3d.software
+| `software-76804e64d965ab81f2db76f61a049a10.swf`
+| 2021-09-30
+|===
