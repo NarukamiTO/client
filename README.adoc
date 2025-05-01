@@ -52,6 +52,10 @@ Patches are licensed under GNU Affero General Public License, version 3.0 or lat
 | `AlternativaLoader.swf` (`2335e89d175042ec8053f75a681da768fc5af2b6`)
 | 2019-05-08
 
+| StandaloneLoader
+| `StandaloneLoader-2.0.swf` (`657c58ead4eabf49c0c8c4d5063699ad5a6403f3`)
+| 2016-09-29
+
 | Prelauncher
 | `Prelauncher.swf` (`c06169991905f011ed8e1e27cf16a4f0d39c0a9d`)
 | 2018-03-28
