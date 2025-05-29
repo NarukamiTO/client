@@ -245,7 +245,10 @@ package alternativa.tanks.models.battle.gui.drone {
     }
 
     private function onTankUnloaded(param1:TankUnloadedEvent) : void {
-      delete global[this.destroyDroneForTank(param1.tank)];
+      // Narukami baseline - `delete global[..]` simply makes no sense, [destroyDroneForTank] returns void,
+      // and [global] is undefined, causing silent error on tank unload, completely breaking the event dispatcher
+      // because it does not handle exceptions correctly.
+      this.destroyDroneForTank(param1.tank);
     }
 
     public function canOverheal() : Boolean {
