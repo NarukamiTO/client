@@ -33,6 +33,10 @@ To run the game using Standalone Flash Player, run the `run` task. Remember to b
 The only changes allowed are renaming of public identifiers due to compiler differences
 (`goto` is not a valid identifier).
 
+`baseline`: Fixes bugs to achieve playable game (e.g., tank unload breaking event dispatcher;
+CTF flag not being able to get triggered more than one time per tank incarnation).
+**You want to use this branch to play the game.**
+
 == License
 
 Patches are licensed under GNU Affero General Public License, version 3.0 or later
