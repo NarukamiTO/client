@@ -1,4 +1,5 @@
 package alternativa.tanks.gui.tankpreview {
+  import alternativa.engine3d.alternativa3d;
   import alternativa.engine3d.containers.KDContainer;
   import alternativa.engine3d.core.Camera3D;
   import alternativa.engine3d.core.Face;
@@ -173,12 +174,12 @@ package alternativa.tanks.gui.tankpreview {
 
     private function classifyObject(param1:Mesh, param2:int) : void {
       var local3:TextureMaterial = null;
-      if(param1.faceList.material is TextureMaterial) {
-        local3 = TextureMaterial(param1.faceList.material);
+      if(param1.alternativa3d::faceList.material is TextureMaterial) {
+        local3 = TextureMaterial(param1.alternativa3d::faceList.material);
         local3.texture = this.garageBoxResource.getTextureForObject(param2);
         param1.setMaterialToAllFaces(local3);
       } else {
-        param1.setMaterialToAllFaces(param1.faceList.material);
+        param1.setMaterialToAllFaces(param1.alternativa3d::faceList.material);
       }
       if(param1.name.indexOf("cam") >= 0) {
         this.cams.push(param1);
@@ -365,10 +366,10 @@ package alternativa.tanks.gui.tankpreview {
 
     private function attach(param1:Mesh, param2:Mesh) : void {
       var local3:Vector.<Face> = param1.faces;
-      local3[local3.length - 1].next = param2.faceList;
-      param2.faceList = null;
+      local3[local3.length - 1].alternativa3d::next = param2.alternativa3d::faceList;
+      param2.alternativa3d::faceList = null;
       var local4:Vector.<Vertex> = param1.vertices;
-      param1.vertices[local4.length - 1].next = param2.vertexList;
+      param1.vertices[local4.length - 1].alternativa3d::next = param2.vertexList;
       param2.vertexList = null;
     }
 
@@ -536,11 +537,11 @@ package alternativa.tanks.gui.tankpreview {
       var local9:Number = -1e+22;
       var local10:Number = -1e+22;
       var local11:Shape = new Shape();
-      var local12:Face = param1.faceList;
+      var local12:Face = param1.alternativa3d::faceList;
       while(local12 != null) {
-        local20 = local12.wrapper;
+        local20 = local12.alternativa3d::wrapper;
         while(local20 != null) {
-          local21 = local20.vertex;
+          local21 = local20.alternativa3d::vertex;
           local22 = -local21.z / param2.z;
           local23 = local21.x + param2.x * local22;
           local24 = local21.y + param2.y * local22;
@@ -556,15 +557,15 @@ package alternativa.tanks.gui.tankpreview {
           if(local24 > local10) {
             local10 = local24;
           }
-          if(local20 == local12.wrapper) {
+          if(local20 == local12.alternativa3d::wrapper) {
             local11.graphics.beginFill(param6);
             local11.graphics.moveTo(local23,local24);
           } else {
             local11.graphics.lineTo(local23,local24);
           }
-          local20 = local20.next;
+          local20 = local20.alternativa3d::next;
         }
-        local12 = local12.next;
+        local12 = local12.alternativa3d::next;
       }
       local7 = (Math.floor(local7 / param3) - param4) * param3;
       local8 = (Math.floor(local8 / param3) - param4) * param3;
