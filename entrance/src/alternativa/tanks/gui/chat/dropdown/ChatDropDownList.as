@@ -11,7 +11,7 @@ package alternativa.tanks.gui.chat.dropdown {
       super();
       this.category = param1;
       height = 256;
-      listWidthExtension = 30;
+      // Narukami baseline - removed probably unintended `listWidthExtension = 30`.
     }
 
     override protected function onButtonClick(param1:MouseEvent) : void {
