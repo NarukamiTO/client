@@ -1,0 +1,3 @@
+Fixes Alternativa Platform's bugs to achieve playable game. For example,
+tank unload breaking event dispatcher; CTF flag not being able to get
+triggered more than one time per tank incarnation.

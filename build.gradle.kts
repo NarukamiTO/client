@@ -2,7 +2,7 @@ import dev.assasans.actionscript.ActionScriptExtension
 import dev.assasans.actionscript.SwfType
 
 plugins {
-  id("dev.assasans.actionscript") version "1.0.6-SNAPSHOT" apply false
+  id("dev.assasans.actionscript") version "1.0.7-SNAPSHOT" apply false
   idea
 }
 

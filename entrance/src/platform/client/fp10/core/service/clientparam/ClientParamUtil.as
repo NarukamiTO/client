@@ -4,11 +4,6 @@ package platform.client.fp10.core.service.clientparam {
   import flash.utils.Dictionary;
 
   public class ClientParamUtil {
-    // Narukami baseline - send information about client changes
-    public static const IDENTITY:Array = [
-      "baseline",
-    ];
-
     public function ClientParamUtil() {
       super();
     }
@@ -24,7 +19,8 @@ package platform.client.fp10.core.service.clientparam {
       if(ExternalInterface.available) {
         local1[ClientParamEnum.BROWSER_USER_AGENT] = ExternalInterface.call("window.navigator.userAgent.toString").replace(/;/gi,",");
       }
-      local1[ClientParamEnum.IDENTITY] = IDENTITY.join(",");
+      // Narukami baseline - send information about client and supported extensions
+      local1[ClientParamEnum.IDENTITY] = BuildConfig.IDENTITY.join(",");
       return local1;
     }
   }
