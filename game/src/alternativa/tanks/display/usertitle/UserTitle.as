@@ -358,7 +358,8 @@ package alternativa.tanks.display.usertitle {
       this.size.setToZero();
       if(this.hasAnyFlag(TitleConfigFlags.LABEL)) {
         this.createLabelComponents();
-        this.label.text = this.labelText || "";
+        // Narukami ext-color-names - use HTML text for label
+        this.label.htmlText = this.labelText || "";
         this.resistanceLabel.color = MessageColor.YELLOW;
         this.resistanceLabel.filters = Filters.SHADOW_FILTERS;
         this.size.setWidth(PREMIUM_RANK_ICON_SIZE + LABEL_SPACING + this.label.textWidth + RESISTANCE_ICON_SPACING_X + RESISTANCE_ICON_WIDTH + RESISTANCE_MAX_TEXT_WIDTH);
@@ -507,7 +508,10 @@ package alternativa.tanks.display.usertitle {
       local1.draw(rankIcon,matrix,null,null,null,true);
       matrix.tx = local3 + this.getRankIconSize() + LABEL_SPACING;
       matrix.ty = TEXTURE_MARGIN;
-      this.label.textColor = this.isSuspicious ? uint(ColorConstants.SUSPICIOUS) : this.healthBarSkin.color;
+      // Narukami ext-color-names - disable client-side colorization if label contains HTML tags
+      if(this.labelText.indexOf("<") == -1) {
+        this.label.textColor = this.isSuspicious ? uint(ColorConstants.SUSPICIOUS) : this.healthBarSkin.color;
+      }
       local1.draw(this.label,matrix,null,null,null,true);
       if(this.resistance > 0) {
         matrix.tx += RESISTANCE_ICON_SPACING_X + this.label.textWidth;

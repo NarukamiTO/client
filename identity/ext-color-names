@@ -1,0 +1,3 @@
+Adds support for server-side colored usernames.
+
+Bugs: will probably break friends and group colors.

@@ -100,7 +100,8 @@ package alternativa.tanks.gui.panel {
     }
 
     private function updateInfo() : void {
-      this.indicators.playerInfo.text = String(this._score) + " / " + String(this._scoreRemain) + "   " + rankService.getRankName(this._rank) + " " + this._playerName;
+      // Narukami ext-color-names - use HTML text for label
+      this.indicators.playerInfo.htmlText = String(this._score) + " / " + String(this._scoreRemain) + "   " + rankService.getRankName(this._rank) + " " + this._playerName;
       this.indicators.progress = this._progress;
       this.indicators.crystalInfo.text = Money.numToString(this._crystals,false);
       this.width = this._width;

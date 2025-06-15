@@ -259,10 +259,11 @@ package forms.userlabel {
       this._uid = param1;
       var local2:String = this.getUidWithClanTag(this._uid);
       var local3:String = local2 + this._additionalText;
-      if(this._uidLabel.text == local3) {
+      if(this._uidLabel.htmlText == local3) {
         return;
       }
-      this._uidLabel.text = local3;
+      // Narukami ext-color-names - use HTML text for label
+      this._uidLabel.htmlText = local3;
       dispatchEvent(new ChatUpdateEvent(ChatUpdateEvent.UPDATE,true));
     }
 
@@ -329,6 +330,10 @@ package forms.userlabel {
     }
 
     protected function refreshFriendState() : void {
+      // Narukami ext-color-names - disable client-side colorization if label contains HTML tags
+      if(this._uid != null && this._uid.indexOf("<") != -1) {
+        return;
+      }
       if(groupInfoService.hasGroups()) {
         if(this.inSameGroup && !this._self) {
           this._uidLabel.color = ColorConstants.FRIEND_COLOR;
@@ -345,6 +350,10 @@ package forms.userlabel {
     }
 
     public function setUidColor(param1:uint, param2:Boolean = false) : void {
+      // Narukami ext-color-names - disable client-side colorization if label contains HTML tags
+      if(this._uid != null && this._uid.indexOf("<") != -1) {
+        return;
+      }
       this._lastUidColor = param1;
       this._ignoreFriendsColor = param2;
       this._uidLabel.color = param1;
